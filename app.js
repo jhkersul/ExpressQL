@@ -3,9 +3,13 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const graphqlHTTP = require('express-graphql');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
+
+// Importing Schema
+const Schema = require('./schema/schema');
 
 const app = express();
 
@@ -23,6 +27,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // App Routing
 app.use('/', index);
 app.use('/users', users);
+
+app.use('/graphql', graphqlHTTP({
+  schema: Schema,
+  graphiql: true,
+}));
 
 // 404 Error Handling
 app.use((req, res, next) => {
