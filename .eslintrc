@@ -1,0 +1,9 @@
+# In this project we use Airbnb Javascript Pattern
+# https://github.com/airbnb/javascript
+{
+  "extends": "airbnb",
+  "rules": {
+    "no-console": ["error", { "allow": ["info", "warn", "error"] }],
+    "no-param-reassign": "off",
+  },
+}
