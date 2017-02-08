@@ -2,11 +2,17 @@ let USERS = [
   {
     id: '1',
     name: 'João',
+    username: 'joaohkfaria',
+    email: 'joao@joao.com',
+    password: 'password',
     admin: false,
   },
   {
     id: '2',
     name: 'Kersul',
+    username: 'jhkersul',
+    email: 'jhkersul@jhkersul.com',
+    password: 'password2',
     admin: true,
   },
 ];

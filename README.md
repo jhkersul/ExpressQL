@@ -25,6 +25,7 @@ With ExpressQL you only need to write your custom endpoints and you'll have in y
 - [ ] File uploading support
 - [ ] Caching support
 - [ ] Serving static files
+- [ ] Sending emails
 
 #### 3. Installation
 

@@ -9,6 +9,7 @@ import { user, users } from './queries/UserQueries';
 // Importing mutations
 import { createUser } from './mutations/UserMutations';
 
+// Listing all queries available
 const queryType = new GraphQLObjectType({
   name: 'QueryType',
   description: 'The root for all queries available.',
@@ -18,6 +19,7 @@ const queryType = new GraphQLObjectType({
   },
 });
 
+// Listing all mutations available
 const mutationType = new GraphQLObjectType({
   name: 'MutationType',
   description: 'The root for all mutations available.',
@@ -26,6 +28,7 @@ const mutationType = new GraphQLObjectType({
   },
 });
 
+// Creating schema
 const schema = new GraphQLSchema({
   query: queryType,
   mutation: mutationType,

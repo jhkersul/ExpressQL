@@ -4,6 +4,7 @@ import {
   GraphQLString,
   GraphQLBoolean,
   GraphQLInputObjectType,
+  GraphQLNonNull,
 } from 'graphql';
 
 export const UserType = new GraphQLObjectType({
@@ -11,12 +12,24 @@ export const UserType = new GraphQLObjectType({
   description: 'A user',
   fields: {
     id: {
-      type: GraphQLID,
+      type: new GraphQLNonNull(GraphQLID),
       description: 'The id of the user',
     },
     name: {
       type: GraphQLString,
       description: 'The name of the user',
+    },
+    username: {
+      type: GraphQLString,
+      description: 'A username for the user, commonly used in login',
+    },
+    email: {
+      type: GraphQLString,
+      description: 'User email',
+    },
+    password: {
+      type: GraphQLString,
+      description: 'Encrypted password',
     },
     admin: {
       type: GraphQLBoolean,
@@ -32,6 +45,18 @@ export const UserInputType = new GraphQLInputObjectType({
     name: {
       type: GraphQLString,
       description: 'The name of the user',
+    },
+    username: {
+      type: GraphQLString,
+      description: 'A username for the user, commonly used in login',
+    },
+    email: {
+      type: GraphQLString,
+      description: 'User email',
+    },
+    password: {
+      type: GraphQLString,
+      description: 'Encrypted password',
     },
     admin: {
       type: GraphQLBoolean,
