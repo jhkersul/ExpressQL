@@ -1,15 +1,17 @@
-const express = require('express');
-const path = require('path');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const graphqlHTTP = require('express-graphql');
-
-const index = require('./routes/index');
-const users = require('./routes/users');
+// Importing packages
+import express from 'express';
+import path from 'path';
+import logger from 'morgan';
+import cookieParser from 'cookie-parser';
+import bodyParser from 'body-parser';
+import graphqlHTTP from 'express-graphql';
 
 // Importing Schema
-const Schema = require('./schema/schema');
+import schema from './graphql/schema';
+
+// Importing routes
+import index from './routes/index';
+import users from './routes/users';
 
 const app = express();
 
@@ -29,7 +31,7 @@ app.use('/', index);
 app.use('/users', users);
 
 app.use('/graphql', graphqlHTTP({
-  schema: Schema,
+  schema,
   graphiql: true,
 }));
 
