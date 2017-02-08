@@ -1,6 +1,6 @@
 <img src="http://i.imgur.com/KXbWZTA.png" width="400">
 
-# ExpressQL - Express GraphQL API Start Kit
+# Express GraphQL API Start Kit
 ### Express.js + GraphQL + MongoDB + JWT Auth
 
 
