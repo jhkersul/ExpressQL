@@ -14,7 +14,6 @@ With ExpressQL you only need to write your custom endpoints and you'll have in y
 #### 2. Features
 - [x] Full ES6
 - [x] Airbnb Javascript coding style
-- [x] GraphQL
 - [x] Full GraphQL API, no REST endpoints
 - [ ] MongoDB connection and queries
 - [ ] User Email/Password creating and authentication
@@ -38,3 +37,33 @@ With ExpressQL you only need to write your custom endpoints and you'll have in y
 |------------|:---------------:|
 | GraphQL    | express-graphql |
 | MongoDB    | mongoose        |
+
+#### 5. Folder Structure
+
+The structure of ExpressQL was designed for perfect scaling. The structure is explained on the schema below.
+
+```
+ExpressQL
+│
+└───controllers
+    |
+      # Try to concentrate all your API logic in here,
+      # DB calls and data manipulation
+    |
+│   
+└───graphql
+|   └───mutations
+    |
+      # All GraphQL mutations goes here
+    |
+|   └───queries
+    |
+      # All GraphQL queries goes here
+    |
+|   └───types
+    |
+      # All GraphQL types goes here
+    |
+    schema.js # Main GraphQL schema file
+|
+```
