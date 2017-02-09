@@ -5,6 +5,7 @@ import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import graphqlHTTP from 'express-graphql';
+import mongoose from 'mongoose';
 
 // Importing Schema
 import schema from './graphql/schema';
@@ -12,6 +13,9 @@ import schema from './graphql/schema';
 // Importing routes
 import index from './routes/index';
 import users from './routes/users';
+
+// Importing config
+import config from './config.json';
 
 const app = express();
 
@@ -52,5 +56,9 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// Connecting to MongoDB
+console.info(`Connecting to Mongo: ${config.mongodb.server}`);
+mongoose.connect(config.mongodb.server);
 
 module.exports = app;

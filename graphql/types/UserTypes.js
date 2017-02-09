@@ -6,6 +6,7 @@ import {
   GraphQLInputObjectType,
   GraphQLNonNull,
 } from 'graphql';
+import DateController from '../../controllers/DateController';
 
 export const UserType = new GraphQLObjectType({
   name: 'User',
@@ -19,10 +20,6 @@ export const UserType = new GraphQLObjectType({
       type: GraphQLString,
       description: 'The name of the user',
     },
-    username: {
-      type: GraphQLString,
-      description: 'A username for the user, commonly used in login',
-    },
     email: {
       type: GraphQLString,
       description: 'User email',
@@ -31,9 +28,24 @@ export const UserType = new GraphQLObjectType({
       type: GraphQLString,
       description: 'Encrypted password',
     },
+    birthday: {
+      type: GraphQLString,
+      description: 'Birthday of the user on the ISO format (ISOString)',
+      resolve: user => DateController.dateToISOString(user.birthday),
+    },
     admin: {
       type: GraphQLBoolean,
       description: 'Whether or not the user is admin',
+    },
+    createdAt: {
+      type: GraphQLString,
+      description: 'Created date in ISO format',
+      resolve: user => DateController.dateToISOString(user.createdAt),
+    },
+    updatedAt: {
+      type: GraphQLString,
+      description: 'Updated date in ISO format',
+      resolve: user => DateController.dateToISOString(user.updatedAt),
     },
   },
 });
@@ -46,10 +58,6 @@ export const UserInputType = new GraphQLInputObjectType({
       type: GraphQLString,
       description: 'The name of the user',
     },
-    username: {
-      type: GraphQLString,
-      description: 'A username for the user, commonly used in login',
-    },
     email: {
       type: GraphQLString,
       description: 'User email',
@@ -58,9 +66,9 @@ export const UserInputType = new GraphQLInputObjectType({
       type: GraphQLString,
       description: 'Encrypted password',
     },
-    admin: {
-      type: GraphQLBoolean,
-      description: 'Whether or not the user is admin',
+    birthday: {
+      type: GraphQLString,
+      description: 'Birthday of the user on the ISO format (ISOString)',
     },
   },
 });

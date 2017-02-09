@@ -15,8 +15,12 @@ With ExpressQL you only need to write your custom endpoints and you'll have in y
 - [x] Full ES6
 - [x] Airbnb Javascript coding style
 - [x] Full GraphQL API, no REST endpoints
-- [ ] MongoDB connection and queries
-- [ ] User Email/Password creating and authentication
+- [x] Vanilla GraphQL calls (Not focused on Relay users)
+- [x] MongoDB connection
+- [x] User creation
+- [x] User updating
+- [x] User password encrypted
+- [ ] User authentication
 - [ ] Creating and authenticating user with Facebook
 - [ ] Simple error handling
 - [ ] Auto generates a temporary Token on Login
@@ -48,8 +52,14 @@ ExpressQL
 │
 └───controllers
     |
-      # Try to concentrate all your API logic in here,
-      # DB calls and data manipulation
+      # Try to concentrate all your internal logic in here,
+      # things evolving data manipulation, validations
+    |
+│
+└───models
+    |
+      # This is were you put all your Mongoose models
+      # In the models that you do the connection with MongoDB (CRUD methods)
     |
 │   
 └───graphql
