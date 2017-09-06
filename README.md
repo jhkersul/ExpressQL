@@ -13,10 +13,12 @@ With ExpressQL you only need to write your custom endpoints and you'll have in y
 
 #### 2. Features
 - [x] Full ES6
+- [ ] Functional programming approach
 - [x] Airbnb Javascript coding style
 - [x] Full GraphQL API, no REST endpoints
 - [x] Vanilla GraphQL calls (Not focused on Relay users)
 - [x] MongoDB connection
+- [ ] Jest tests
 - [x] User creation
 - [x] User updating
 - [x] User password encrypted
@@ -33,9 +35,23 @@ With ExpressQL you only need to write your custom endpoints and you'll have in y
 
 #### 3. Installation
 
-* TODO
 * Watchman
+  * Install Watchman on your system following the official tutorial:
+  https://facebook.github.io/watchman/docs/install.html
+
 * Node.js
+  * Install Node.js on your system following the official tutorial:
+  https://nodejs.org/en/download/package-manager/
+
+* MongoDB:
+  * Install on your system following the official tutorial:
+  https://docs.mongodb.com/manual/administration/install-community/
+  * Create MongoDB database:
+  ```
+  $ mongo
+  > use ExpressQL
+  > exit
+  ```
 
 #### 4. Technologies Used
 | Technology | Package Used    |
