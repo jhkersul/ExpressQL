@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
-import EncryptController from '../controllers/EncryptController';
-import DateController from '../controllers/DateController';
+import { encrypt } from '../services/Encrypter';
+import {
+  getCurrentISOStringDate,
+  getDateFromISOString,
+} from '../services/DateFormatter';
 
 // Defining user Mongoose Schema
 const UserSchema = new mongoose.Schema({
@@ -19,22 +22,26 @@ export const User = mongoose.model('User', UserSchema);
 
 /**
  * This function mounts the user data with the right params
+ * @param  {Object}  args           Arguments to create user
+ * @param  {Boolean} [update=false] If you wanna get the data for update
+ * @return {Object}                 Returns the userData object
  */
 const getUserData = (args, update = false) => {
+  // Getting params
   const name = args.user.name;
   const email = args.user.email;
-  const birthday = DateController.isoStringToDate(args.user.birthday);
-  const password = EncryptController.encrypt(args.user.password);
-  const createdAt = DateController.currentDateISOString();
-  const updatedAt = DateController.currentDateISOString();
+  const birthday = getDateFromISOString(args.user.birthday);
+  const password = encrypt(args.user.password);
+  const createdAt = getCurrentISOStringDate();
+  const updatedAt = getCurrentISOStringDate();
 
+  // Creating userData object
   const userData = {};
-
+  // Mounting userData object
   if (name) userData.name = name;
   if (email) userData.email = email;
   if (birthday) userData.birthday = birthday;
   if (password) userData.password = password;
-
   if (update) userData.updatedAt = updatedAt;
   else {
     userData.createdAt = createdAt;
@@ -46,6 +53,8 @@ const getUserData = (args, update = false) => {
 
 /**
  * This function creates a user on Database
+ * @param  {Object} args The arguments to create a user
+ * @return {Promise}     Returns the Promise on creating a user
  */
 export const createUserDB = args => (
   new Promise((resolve, reject) => {
@@ -61,6 +70,8 @@ export const createUserDB = args => (
 
 /**
  * This function updates a user on Database
+ * @param  {Object} args  Arguments to update a user
+ * @return {Promise}      Returns the Promise on updating a user
  */
 export const updateUserDB = args => (
   new Promise((resolve, reject) => {
@@ -75,6 +86,7 @@ export const updateUserDB = args => (
 
 /**
  * This functions get a list of users from database
+ * @return {Promise} Returns the Promise on getting a list of users
  */
 export const getUsersDB = () => (
   new Promise((resolve, reject) => {
@@ -86,6 +98,8 @@ export const getUsersDB = () => (
 
 /**
  * This functions get a single user, filtered by it's ID
+ * @param  {String} id  The ID of the user that we wanna get
+ * @return {Promise}    Returns the Promise on getting a single user
  */
 export const getUserByIdDB = id => (
   new Promise((resolve, reject) => {
