@@ -19,7 +19,7 @@ With ExpressQL you only need to write your custom endpoints and you'll have in y
 - [x] Full GraphQL API, no REST endpoints
 - [x] Vanilla GraphQL calls (Not focused on Relay users)
 - [x] MongoDB connection
-- [ ] Jest tests
+- [x] Jest tests
 - [x] User creation
 - [x] User updating
 - [x] User password encrypted
