@@ -5,5 +5,8 @@
   },
   "mongodb": {
     "server": "mongodb://localhost/ExpressQL"
+  },
+  "jwt": {
+    "secret": "YOUR_SECRET"
   }
 }
