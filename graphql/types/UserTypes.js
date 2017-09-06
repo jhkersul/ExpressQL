@@ -6,7 +6,7 @@ import {
   GraphQLInputObjectType,
   GraphQLNonNull,
 } from 'graphql';
-import DateController from '../../controllers/DateController';
+import { getISOStringFromDate } from '../../services/DateFormatter';
 
 export const UserType = new GraphQLObjectType({
   name: 'User',
@@ -31,7 +31,7 @@ export const UserType = new GraphQLObjectType({
     birthday: {
       type: GraphQLString,
       description: 'Birthday of the user on the ISO format (ISOString)',
-      resolve: user => DateController.dateToISOString(user.birthday),
+      resolve: user => getISOStringFromDate(user.birthday),
     },
     admin: {
       type: GraphQLBoolean,
@@ -40,12 +40,12 @@ export const UserType = new GraphQLObjectType({
     createdAt: {
       type: GraphQLString,
       description: 'Created date in ISO format',
-      resolve: user => DateController.dateToISOString(user.createdAt),
+      resolve: user => getISOStringFromDate(user.createdAt),
     },
     updatedAt: {
       type: GraphQLString,
       description: 'Updated date in ISO format',
-      resolve: user => DateController.dateToISOString(user.updatedAt),
+      resolve: user => getISOStringFromDate(user.updatedAt),
     },
   },
 });
