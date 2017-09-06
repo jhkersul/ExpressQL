@@ -13,7 +13,8 @@ With ExpressQL you only need to write your custom endpoints and you'll have in y
 
 #### 2. Features
 - [x] Full ES6
-- [ ] Functional programming approach
+- [x] Functional programming approach
+- [ ] Using Immutable.js
 - [x] Airbnb Javascript coding style
 - [x] Full GraphQL API, no REST endpoints
 - [x] Vanilla GraphQL calls (Not focused on Relay users)

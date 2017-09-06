@@ -6,4 +6,10 @@
     "no-console": ["error", { "allow": ["info", "warn", "error"] }],
     "no-param-reassign": "off",
   },
+  "env": {
+    "jest/globals": true
+  },
+  "plugins": [
+    "jest"
+  ],
 }
