@@ -59,6 +59,7 @@ With ExpressQL you only need to write your custom endpoints and you'll have in y
 |------------|:---------------:|
 | GraphQL    | express-graphql |
 | MongoDB    | mongoose        |
+| JWT        | jsonwebtoken    |
 
 #### 5. Folder Structure
 
