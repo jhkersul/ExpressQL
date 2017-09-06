@@ -23,7 +23,7 @@ With ExpressQL you only need to write your custom endpoints and you'll have in y
 - [x] User creation
 - [x] User updating
 - [x] User password encrypted
-- [ ] User authentication
+- [x] User authentication
 - [ ] Creating and authenticating user with Facebook
 - [ ] Simple error handling
 - [ ] Auto generates a temporary Token on Login
