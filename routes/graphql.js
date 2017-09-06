@@ -12,4 +12,4 @@ router.use('/', graphqlHTTP({
   graphiql: true,
 }));
 
-module.exports = router;
+export default router;

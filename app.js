@@ -54,4 +54,4 @@ mongoose.connect(config.mongodb.server, {
   useMongoClient: true,
 });
 
-module.exports = app;
+export default app;
