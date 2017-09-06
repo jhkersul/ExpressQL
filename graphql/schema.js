@@ -7,7 +7,14 @@ import {
 import { user, users } from './queries/UserQueries';
 
 // Importing mutations
-import { createUser, updateUser } from './mutations/UserMutations';
+import {
+  createUser,
+  updateUser,
+  deleteUser,
+} from './mutations/UserMutations';
+import {
+  authUser,
+} from './mutations/AuthMutations';
 
 // Listing all queries available
 const queryType = new GraphQLObjectType({
@@ -26,6 +33,8 @@ const mutationType = new GraphQLObjectType({
   fields: {
     createUser,
     updateUser,
+    deleteUser,
+    authUser,
   },
 });
 

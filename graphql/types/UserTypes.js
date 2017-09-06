@@ -21,11 +21,11 @@ export const UserType = new GraphQLObjectType({
       description: 'The name of the user',
     },
     email: {
-      type: GraphQLString,
+      type: new GraphQLNonNull(GraphQLString),
       description: 'User email',
     },
     password: {
-      type: GraphQLString,
+      type: new GraphQLNonNull(GraphQLString),
       description: 'Encrypted password',
     },
     birthday: {

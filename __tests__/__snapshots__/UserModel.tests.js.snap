@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getUserByIdDB - Must match the snapshot 1`] = `
+Object {
+  "__v": 0,
+  "_id": "59b03e568ce6e41d50459410",
+  "admin": false,
+  "birthday": 1990-02-01T10:00:00.000Z,
+  "createdAt": 2017-09-06T18:28:38.648Z,
+  "email": "kersul@kersul.com",
+  "id": "59b03e568ce6e41d50459410",
+  "name": "Kersul",
+  "password": "$2a$10$mmUyPGv1DJtgLpwG7DULu.tgz0srAxOtrUd3b.fEul9WhG1qTrcce",
+  "updatedAt": 2017-09-06T18:28:38.649Z,
+}
+`;
+
+exports[`getUsersByField - Must match the snapshot 1`] = `
+Array [
+  Object {
+    "__v": 0,
+    "_id": "59b03e568ce6e41d50459410",
+    "admin": false,
+    "birthday": 1990-02-01T10:00:00.000Z,
+    "createdAt": 2017-09-06T18:28:38.648Z,
+    "email": "kersul@kersul.com",
+    "id": "59b03e568ce6e41d50459410",
+    "name": "Kersul",
+    "password": "$2a$10$mmUyPGv1DJtgLpwG7DULu.tgz0srAxOtrUd3b.fEul9WhG1qTrcce",
+    "updatedAt": 2017-09-06T18:28:38.649Z,
+  },
+]
+`;

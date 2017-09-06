@@ -52,6 +52,23 @@ const getUserData = (args, update = false) => {
 };
 
 /**
+ * Get a list of users based on a field provided
+ * passing a value for that particular field
+ * @param  {String} field   Field that you wanna use as filter
+ * @param  {String} value   Value of the field that you wanna filter
+ * @return {Promise}        Returns the Promise on getting a list of users
+ */
+export const getUsersByFieldDB = (field, value) => (
+  new Promise((resolve, reject) => {
+    const obj = {};
+    obj[field] = value;
+    User.find(obj).exec((err, res) => (
+      err ? reject(err) : resolve(res)
+    ));
+  })
+);
+
+/**
  * This function creates a user on Database
  * @param  {Object} args The arguments to create a user
  * @return {Promise}     Returns the Promise on creating a user
@@ -61,10 +78,21 @@ export const createUserDB = args => (
     // Creating User object that will be added to DB
     const newUser = new User(getUserData(args));
 
-    // Saving new user do DB
-    newUser.save((err, res) => (
-      err ? reject(err) : resolve(res)
-    ));
+    // First, we gonna check if the email already exists
+    getUsersByFieldDB('email', newUser.email)
+      .then((users) => {
+        // If didn't find any user
+        if (users.length === 0) {
+          // Saving new user do DB
+          newUser.save((err, res) => (
+            err ? reject(err) : resolve(res)
+          ));
+        } else {
+          // If found users, reject
+          reject('User already exists');
+        }
+      })
+      .catch(err => reject(err));
   })
 );
 
@@ -105,6 +133,20 @@ export const getUserByIdDB = id => (
   new Promise((resolve, reject) => {
     User.find({ _id: id }).exec((err, res) => (
       err ? reject(err) : resolve(res[0])
+    ));
+  })
+);
+
+/**
+ * Deleting a user from database
+ * @param  {Object} args  Arguments necessary to delete a user
+ * @return {Promise}      A promise with the deleted user
+ */
+export const deleteUserDB = args => (
+  new Promise((resolve, reject) => {
+    // Updating user
+    User.findByIdAndRemove(args.id, (err, res) => (
+      err ? reject(err) : resolve(res)
     ));
   })
 );

@@ -4,7 +4,6 @@ import path from 'path';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
 
 // Importing routes
 import index from './routes/index';
@@ -12,6 +11,9 @@ import graphql from './routes/graphql';
 
 // Importing config
 import config from './config.json';
+
+// Another imports
+import { connectToMongo } from './services/Mongo';
 
 const app = express();
 
@@ -49,9 +51,6 @@ app.use((err, req, res, next) => {
 });
 
 // Connecting to MongoDB
-console.info(`Connecting to Mongo: ${config.mongodb.server}`);
-mongoose.connect(config.mongodb.server, {
-  useMongoClient: true,
-});
+connectToMongo(config.mongodb.server);
 
 export default app;
