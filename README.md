@@ -35,11 +35,11 @@ With ExpressQL you only need to write your custom endpoints and you'll have in y
 
 #### 3. Installation
 
-1. Watchman
+1. Watchman:
   * Install Watchman on your system following the official tutorial:
   https://facebook.github.io/watchman/docs/install.html
 
-2. Node.js
+2. Node.js:
   * Install Node.js on your system following the official tutorial:
   https://nodejs.org/en/download/package-manager/
 
@@ -53,14 +53,19 @@ With ExpressQL you only need to write your custom endpoints and you'll have in y
   > exit
   ```
 
-#### 4. Technologies Used
+#### 4. How to Use
+
+All the information that you need is in the [Wiki](https://github.com/joaohkfaria/ExpressQL/wiki).
+
+#### 5. Technologies Used
+
 | Technology | Package Used    |
 |------------|:---------------:|
 | GraphQL    | express-graphql |
 | MongoDB    | mongoose        |
 | JWT        | jsonwebtoken    |
 
-#### 5. Folder Structure
+#### 6. Folder Structure
 
 The structure of ExpressQL was designed for perfect scaling. The structure is explained on the schema below.
 
