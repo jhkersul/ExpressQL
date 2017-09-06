@@ -50,6 +50,8 @@ app.use((err, req, res, next) => {
 
 // Connecting to MongoDB
 console.info(`Connecting to Mongo: ${config.mongodb.server}`);
-mongoose.connect(config.mongodb.server);
+mongoose.connect(config.mongodb.server, {
+  useMongoClient: true,
+});
 
 module.exports = app;
