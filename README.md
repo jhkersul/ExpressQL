@@ -1,7 +1,7 @@
 <img src="http://i.imgur.com/KXbWZTA.png" width="400">
 
-# Express GraphQL API Start Kit
-### Express.js + GraphQL + MongoDB + JWT Auth
+# Express GraphQL API Start Kit (In Development)
+### Node.js + Express.js + GraphQL + MongoDB + JWT Auth
 
 
 #### 1. What is ExpressQL?
@@ -37,7 +37,7 @@ With ExpressQL you only need to write your custom endpoints and you'll have in y
 * Watchman
 * Node.js
 
-#### 4. Used Technologies
+#### 4. Technologies Used
 | Technology | Package Used    |
 |------------|:---------------:|
 | GraphQL    | express-graphql |
@@ -50,10 +50,10 @@ The structure of ExpressQL was designed for perfect scaling. The structure is ex
 ```
 ExpressQL
 │
-└───controllers
+└───services
     |
       # Try to concentrate all your internal logic in here,
-      # things evolving data manipulation, validations
+      # Things evolving data manipulation, validations
     |
 │
 └───models
@@ -77,4 +77,9 @@ ExpressQL
     |
     schema.js # Main GraphQL schema file
 |
+└───tests
+    |
+      # This is were you put all your jest tests
+    |
+│
 ```
