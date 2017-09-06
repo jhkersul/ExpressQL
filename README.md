@@ -35,15 +35,15 @@ With ExpressQL you only need to write your custom endpoints and you'll have in y
 
 #### 3. Installation
 
-* Watchman
+1. Watchman
   * Install Watchman on your system following the official tutorial:
   https://facebook.github.io/watchman/docs/install.html
 
-* Node.js
+2. Node.js
   * Install Node.js on your system following the official tutorial:
   https://nodejs.org/en/download/package-manager/
 
-* MongoDB:
+3. MongoDB:
   * Install on your system following the official tutorial:
   https://docs.mongodb.com/manual/administration/install-community/
   * Create MongoDB database:
